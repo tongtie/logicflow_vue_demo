@@ -1,5 +1,6 @@
 <template>
   <div class="logic-flow-view">
+    <el-button @click="back">后退</el-button>
     <h3 class="demo-title">LogicFlow Vue demo</h3>
     <!-- 辅助工具栏 -->
     <Control class="demo-control" v-if="lf" :lf="lf" @catData="$_catData"></Control>
@@ -263,8 +264,11 @@ export default {
      $_catData(){
       this.$data.graphData = this.$data.lf.getGraphData();
       this.$data.dataVisible = true;
+    },
+    back() {
+      this.$router.go(-1);
+    },
     }
-  }
 }
 </script>
 <style>
